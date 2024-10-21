@@ -30,8 +30,8 @@ private:
 
     DistanceSensor *l90 = createSensorVl0X(2);
     DistanceSensor *r90 = createSensorVl0X(A0);
-    DistanceSensor *l0 = createSensorVl0X(3);
-    DistanceSensor *r0 = createSensorVl0X(A1);
+    DistanceSensor *l0 = createSensorVl1X(3);
+    DistanceSensor *r0 = createSensorVl1X(A1);
     DistanceSensor *l45 = createSensorVl1X(A2);
     DistanceSensor *r45 = createSensorVl1X(A3);
 
