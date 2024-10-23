@@ -48,12 +48,12 @@ public:
 
     void readData()
     {
-        int l90d = l90->getDistance();
-        int r90d = r90->getDistance();
-        int l0d = l0->getDistance();
-        int r0d = r0->getDistance();
-        int l45d = l45->getDistance();
-        int r45d = r45->getDistance();
+        l90d = l90->getDistance();
+        r90d = r90->getDistance();
+        l0d = l0->getDistance();
+        r0d = r0->getDistance();
+        l45d = l45->getDistance();
+        r45d = r45->getDistance();
 
         mpu.readData(yaw, pitch, roll);
 
@@ -64,7 +64,7 @@ public:
         prevYaw = yaw;
         absolutAngle = rotates * 360 + yaw;
 
-#ifdef DEBUG
+#ifdef DEBUG_SENSORS
         Serial.print("\tl90 = ");
         Serial.print(l90d);
         Serial.print("\tl45 = ");
