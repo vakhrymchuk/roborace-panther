@@ -45,4 +45,8 @@ public:
     {
         mechanics->run(speed, angle);
     }
+    
+    void setServoCorrection(int correction) {
+        mechanics->setServoCorrection(correction);
+    }
 };

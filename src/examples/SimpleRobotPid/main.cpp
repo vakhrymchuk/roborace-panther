@@ -17,6 +17,7 @@ void setup()
 #endif
 
     robot = new Robot();
+    robot->setServoCorrection(-4);
 
     pid = new PIDController();
 
