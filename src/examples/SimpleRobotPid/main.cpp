@@ -18,11 +18,12 @@ void setup()
 
     robot = new Robot();
     robot->setServoCorrection(-4);
+    robot->setMaxTurn(20);
 
     pid = new PIDController();
 
-    pid->tune(10.0, 0.0, 20.0);
-    pid->limit(-20, 20);
+    pid->tune(0.1, 0.0, 0.2);
+    pid->limit(-30, 30);
     pid->setpoint(0);
 
     delay(500);

@@ -8,6 +8,7 @@ private:
     Servo power;
     Servo servo;
     int _correction = 0;
+    int _maxTurn = 25;
 
 public:
     Mechanics()
@@ -20,13 +21,18 @@ public:
         speed = constrain(speed, -500, 500);
         power.writeMicroseconds(1500 + speed);
 
-        angle = 90 + constrain(angle, -30, 30) + _correction;
+        angle = 90 + constrain(angle, -_maxTurn, _maxTurn) + _correction;
         servo.write(angle);
     }
 
     void setServoCorrection(int correction)
     {
         this->_correction = correction;
+    }
+
+    void setMaxTurn(int maxTurn)
+    {
+        this->_maxTurn = maxTurn;
     }
 
 private:

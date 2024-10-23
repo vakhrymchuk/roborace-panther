@@ -49,4 +49,8 @@ public:
     void setServoCorrection(int correction) {
         mechanics->setServoCorrection(correction);
     }
+    
+    void setMaxTurn(int maxTurn) {
+        mechanics->setMaxTurn(maxTurn);
+    }
 };
