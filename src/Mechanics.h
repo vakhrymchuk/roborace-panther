@@ -19,7 +19,7 @@ public:
         speed = constrain(speed, -500, 500);
         power.writeMicroseconds(1500 + speed);
         
-        angle = constrain(angle, -30, 30);
+        angle = 90 + constrain(angle, -30, 30);
         servo.write(angle);
     }
 
