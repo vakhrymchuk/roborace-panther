@@ -40,6 +40,9 @@ private:
     int rotates = 0;
     float prevYaw = 0;
 
+    float maxAngle = 0;
+    float minAngle = 0;
+
 public:
     Sensors()
     {
@@ -63,6 +66,8 @@ public:
         }
         prevYaw = yaw;
         absolutAngle = rotates * 360 + yaw;
+        minAngle = min(minAngle, absolutAngle);
+        maxAngle = max(maxAngle, absolutAngle);
 
 #ifdef DEBUG_SENSORS
         Serial.print("\tl90 = ");
@@ -87,8 +92,20 @@ public:
         Serial.print(roll);
         Serial.print("\tabsolutAngle = ");
         Serial.print(absolutAngle);
+        if (isClockwise(270)) Serial.print("\tClockwise!");
+        if (isCounterClockwise(270)) Serial.print("\tCounterClockwise!");
         Serial.println();
 #endif
+    }
+
+    bool isClockwise(int angle = 270)
+    {
+        return absolutAngle > minAngle + angle;
+    }
+
+    bool isCounterClockwise(int angle = 270)
+    {
+        return absolutAngle <= maxAngle - angle;
     }
 
 private:
