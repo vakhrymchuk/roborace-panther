@@ -53,4 +53,14 @@ public:
     void setMaxTurn(int maxTurn) {
         mechanics->setMaxTurn(maxTurn);
     }
+
+    bool isClockwise(int angle = 270)
+    {
+        return sensors->isClockwise(angle);
+    }
+
+    bool isCounterClockwise(int angle = 270)
+    {
+        return sensors->isCounterClockwise(angle);
+    }
 };
